@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/images/background/mask1.png" type="image/png">
+    <title>{% block title %}Гайд по Киндред{% endblock %}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="full-width-header">
+    <div class="container-header">
+            <header>
+                <div class="logo">
+                    <span ><img class="logo-icon" src="static/images/background/mask1.png"> </span>
+                    <span class="logo-text">Киндред</span>
+                </div>
+                <nav class="nav">
+                    <a href="/">Главная</a>
+                    <a href="/builds">Билды</a>
+                    <a href="/runes">Руны</a>
+                    <a href="/matchups">Матчапы</a>
+                    <a href="/about_me">Об авторе</a>
+                </nav>
+                <div class="version">Версия 26.17</div>
+            </header>
+    </div>
+    </div>
+    
+    
+            <!-- ШАПКА -->
+            
+
+            <!-- ОСНОВНОЙ КОНТЕНТ -->
+             
+            {% block content %}
+            {% endblock %}
+        
+    </div>
+
+    <script src="/static/js/abilities.js"></script>
+</body>
