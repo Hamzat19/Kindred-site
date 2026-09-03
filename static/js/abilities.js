@@ -51,39 +51,45 @@ document.querySelectorAll('.ability-btn').forEach(btn => {
 });
 
 
-function openModal(imgSrc, captionText) {
-        const modal = document.getElementById('imageModal');
+document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем, есть ли модальное окно на странице
+    const modal = document.getElementById('imageModal');
+    if (!modal) return; // Если нет — выходим, ошибок не будет
+
+    const closeBtn = document.getElementById('modalClose');
+
+    // Открыть модалку
+    window.openModal = function(imgSrc, captionText) {
         const modalImg = document.getElementById('modalImg');
         const caption = document.getElementById('modalCaption');
-        
         modal.style.display = "flex";
         modalImg.src = imgSrc;
         caption.textContent = captionText;
-        
-        // Блокируем скролл страницы
         document.body.style.overflow = "hidden";
-    }
+    };
 
-    // Закрыть модальное окно
-    function closeModal() {
-        const modal = document.getElementById('imageModal');
+    // Закрыть модалку
+    window.closeModal = function() {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
+    };
+
+    // Закрытие по крестику
+    if (closeBtn) {
+        closeBtn.addEventListener('click', window.closeModal);
     }
 
-    // Закрытие по клику на крестик
-    document.getElementById('modalClose').addEventListener('click', closeModal);
-
     // Закрытие по клику вне картинки
-    document.getElementById('imageModal').addEventListener('click', function(event) {
+    modal.addEventListener('click', function(event) {
         if (event.target === this) {
-            closeModal();
+            window.closeModal();
         }
     });
 
-    // Закрытие по клавише ESC
+    // Закрытие по ESC
     document.addEventListener('keydown', function(event) {
         if (event.key === "Escape") {
-            closeModal();
+            window.closeModal();
         }
     });
+});
